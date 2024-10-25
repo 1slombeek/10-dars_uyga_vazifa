@@ -1,0 +1,31 @@
+class Talaba:
+    def __init__(self, ism):
+        self.ism = ism
+        self.fanlar = []
+
+    def fanga_yozil(self, fan):
+        self.fanlar.append(fan)
+
+    def remove_fan(self, fan):
+        if fan in self.fanlar:
+            self.fanlar.remove(fan)
+            print(f"{fan} fani o'chirildi.")
+        else:
+            print("Siz bu fanga yozilmagansiz.")
+
+    def korsatish(self):
+        print("Talaba:", self.ism)
+        print("Fanlar:", ", ".join(self.fanlar))
+
+talaba1 = Talaba("Ali")
+
+
+talaba1.fanga_yozil("Matematika")
+talaba1.fanga_yozil("Fizika")
+
+talaba1.korsatish()
+
+# Fanlarni o'chirish
+talaba1.remove_fan("Matematika")
+talaba1.remove_fan("Geometriya")
+talaba1.korsatish()
