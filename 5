@@ -1,0 +1,47 @@
+class Shaxs:
+    def __init__(self, ism, yosh):
+        self.ism = ism
+        self.yosh = yosh
+
+    def tanishtirish(self):
+        return f"Ism: {self.ism}, Yosh: {self.yosh}"
+class Professor(Shaxs):
+    def __init__(self, ism, yosh, fan):
+        super().__init__(ism, yosh)
+        self.fan = fan
+
+    def tanishtirish(self):
+        return f"{super().tanishtirish()}, Fan: {self.fan}"
+class Foydalanuvchi(Shaxs):
+    def __init__(self, ism, yosh, email):
+        super().__init__(ism, yosh)
+        self.email = email
+
+    def tanishtirish(self):
+        return f"{super().tanishtirish()}, Email: {self.email}"
+class Sotuvchi(Shaxs):
+    def __init__(self, ism, yosh, mahsulot):
+        super().__init__(ism, yosh)
+        self.mahsulot = mahsulot
+
+    def tanishtirish(self):
+        return f"{super().tanishtirish()}, Sotilayotgan mahsulot: {self.mahsulot}"
+class Mijoz(Shaxs):
+    def __init__(self, ism, yosh, buyurtmalar):
+        super().__init__(ism, yosh)
+        self.buyurtmalar = buyurtmalar
+
+    def tanishtirish(self):
+        return f"{super().tanishtirish()}, Buyurtmalar: {', '.join(self.buyurtmalar)}"
+
+professor1 = Professor("Ali", 45, "Matematika")
+print(professor1.tanishtirish())
+
+foydalanuvchi1 = Foydalanuvchi("Sarina", 22, "sarina@example.com")
+print(foydalanuvchi1.tanishtirish())
+
+sotuvchi1 = Sotuvchi("Temur", 30, "Telefon")
+print(sotuvchi1.tanishtirish())
+
+mijoz1 = Mijoz("Laylo", 28, ["Kitob", "Qalam"])
+print(mijoz1.tanishtirish())
