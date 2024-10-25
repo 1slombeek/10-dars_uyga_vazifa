@@ -1,0 +1,33 @@
+class Fan:
+    def __init__(self, nomi):
+        self.nomi = nomi
+
+    def __repr__(self):
+        return self.nomi
+
+class Talaba:
+    def __init__(self, ism):
+        self.ism = ism
+        self.fanlar = []
+
+    def fanga_yozil(self, fan):
+        if isinstance(fan, Fan):  
+            self.fanlar.append(fan)
+            print(f"{fan.nomi} fani qo'shildi.")
+        else:
+            print(f"{fan} - bu Fan klassiga tegishli emas.")
+
+    def __repr__(self):
+        return f"{self.ism} (Fanlar: {', '.join(repr(fan) for fan in self.fanlar)})"
+
+matematika = Fan("Matematika")
+fizika = Fan("Fizika")
+
+talaba1 = Talaba("Ali")
+
+talaba1.fanga_yozil(matematika)
+talaba1.fanga_yozil(fizika)
+
+print(talaba1)
+
+talaba1.fanga_yozil("Geometriya")
