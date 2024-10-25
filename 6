@@ -1,0 +1,75 @@
+class Shaxs:
+    def __init__(self, ism, yosh):
+        self.ism = ism
+        self.yosh = yosh
+
+    def tanishtirish(self):
+        return f"Ism: {self.ism}, Yosh: {self.yosh}"
+
+class Professor(Shaxs):
+    def __init__(self, ism, yosh, fan, daraja):
+        super().__init__(ism, yosh)
+        self.fan = fan
+        self.daraja = daraja
+
+    def tanishtirish(self):
+        return f"{super().tanishtirish()}, Fan: {self.fan}, Daraja: {self.daraja}"
+
+    def dars_berish(self):
+        return f"{self.ism} {self.fan} fanidan dars berayapti."
+
+class Foydalanuvchi(Shaxs):
+    def __init__(self, ism, yosh, email, parol):
+        super().__init__(ism, yosh)
+        self.email = email
+        self.parol = parol
+
+    def tanishtirish(self):
+        return f"{super().tanishtirish()}, Email: {self.email}"
+
+    def parolni_ozgartirish(self, yangi_parol):
+        self.parol = yangi_parol
+        return "Parol muvaffaqiyatli o'zgartirildi."
+
+class Sotuvchi(Shaxs):
+    def __init__(self, ism, yosh, mahsulot, sotuvlar_soni):
+        super().__init__(ism, yosh)
+        self.mahsulot = mahsulot
+        self.sotuvlar_soni = sotuvlar_soni
+
+    def tanishtirish(self):
+        return f"{super().tanishtirish()}, Sotilayotgan mahsulot: {self.mahsulot}, Sotuvlar soni: {self.sotuvlar_soni}"
+
+    def sotish(self, miqdor):
+        self.sotuvlar_soni += miqdor
+        return f"{miqdor} ta {self.mahsulot} sotildi."
+
+class Mijoz(Shaxs):
+    def __init__(self, ism, yosh, buyurtmalar):
+        super().__init__(ism, yosh)
+        self.buyurtmalar = buyurtmalar
+
+    def tanishtirish(self):
+        return f"{super().tanishtirish()}, Buyurtmalar: {', '.join(self.buyurtmalar)}"
+
+    def buyurtma_berish(self, buyurtma):
+        self.buyurtmalar.append(buyurtma)
+        return f"{buyurtma} buyurtma berildi."
+
+professor1 = Professor("Ali", 45, "Matematika", "Doktor")
+print(professor1.tanishtirish())
+print(professor1.dars_berish())
+
+
+foydalanuvchi1 = Foydalanuvchi("Sarina", 22, "sarina@example.com", "12345")
+print(foydalanuvchi1.tanishtirish())
+print(foydalanuvchi1.parolni_ozgartirish("newpassword"))
+
+
+sotuvchi1 = Sotuvchi("Temur", 30, "Telefon", 100)
+print(sotuvchi1.tanishtirish())
+print(sotuvchi1.sotish(5))
+mijoz1 = Mijoz("Laylo", 28, ["Kitob", "Qalam"])
+print(mijoz1.tanishtirish())
+print(mijoz1.buyurtma_berish("Ruchka"))
+print(mijoz1.tanishtirish())
