@@ -1,0 +1,32 @@
+class Foydalanuvchi:
+    def __init__(self, ism, yosh, email, parol):
+        self.ism = ism
+        self.yosh = yosh
+        self.email = email
+        self.parol = parol
+
+    def get_info(self):
+        return f"Ism: {self.ism}, Yosh: {self.yosh}, Email: {self.email}"
+
+    def parolni_ozgartirish(self, yangi_parol):
+        self.parol = yangi_parol
+        return "Parol muvaffaqiyatli o'zgartirildi."
+
+class Admin(Foydalanuvchi):
+    def __init__(self, ism, yosh, email, parol, huquqlar):
+        super().__init__(ism, yosh, email, parol)
+        self.huquqlar = huquqlar 
+
+    def get_info(self):
+        return f"{super().get_info()}, Huquqlar: {', '.join(self.huquqlar)}"
+
+    def foydalanuvchilarni_boshqarish(self):
+        return f"{self.ism} foydalanuvchilarni boshqaradi."
+
+
+foydalanuvchi1 = Foydalanuvchi("Sarina", 22, "sarina@example.com", "12345")
+print(foydalanuvchi1.get_info())
+
+admin1 = Admin("Temur", 35, "temur@example.com", "adminpass", ["Foydalanuvchilarni qo'shish", "Foydalanuvchilarni o'chirish"])
+print(admin1.get_info())
+print(admin1.foydalanuvchilarni_boshqarish())
